@@ -12,5 +12,12 @@
     tools:context="com.example.filip.festiwal.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:background="@color/festival_grey">
-
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView2"
+        android:src="@drawable/festiwallogobiale"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

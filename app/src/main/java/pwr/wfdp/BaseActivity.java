@@ -1,4 +1,4 @@
-package pwr.festiwalujecie1232535;
+package pwr.wfdp;
 
 import android.content.Intent;
 import android.support.design.widget.NavigationView;

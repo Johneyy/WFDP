@@ -1,4 +1,4 @@
-package pwr.festiwalujecie1232535;
+package pwr.wfdp;
 
 import android.annotation.SuppressLint;
 import android.graphics.Matrix;

@@ -15,10 +15,11 @@ import android.widget.PopupWindow;
 import android.widget.Toolbar;
 
 public class FestiwalMap extends BaseActivity {
-	private static final float SCALE_MIN = 0.5f;
+	private static final float SCALE_MIN = 1f;
 	private static final float SCALE_MAX = 2f;
 
     ImageView imageDetail;
+    ImageView buttonOne;
     Matrix matrix = new Matrix();
     Matrix savedMatrix = new Matrix();
     PointF startPoint = new PointF();
@@ -38,6 +39,13 @@ public class FestiwalMap extends BaseActivity {
                 Toolbar.LayoutParams.WRAP_CONTENT,
                 Toolbar.LayoutParams.WRAP_CONTENT);
         popupWindow.showAtLocation(findViewById(R.id.mapActivity), Gravity.NO_GRAVITY,200,600); //#TODO zmiana zhardcodowanych wspolrzednych na wyliczane dane
+
+        Button closed = (Button) layoutt.findViewById(R.id.btn_close_popup);
+        closed.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
     }
     /** Called when the activity is first created. */
     @Override
@@ -45,7 +53,8 @@ public class FestiwalMap extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_festiwal_map);
         setFullscreen();
-        Button buttonOne = (Button) findViewById(R.id.ButtonClick);
+
+        buttonOne = (ImageView) findViewById(R.id.ButtonClick);
         buttonOne.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 popUpWinInformation();
@@ -98,7 +107,7 @@ public class FestiwalMap extends BaseActivity {
                         } else if (mode == ZOOM) {
                             float newDist = spacing(event);
                             if (newDist > 10f) {
-								matrix.set( savedMatrix );
+								matrix.set(savedMatrix);
 
 								// Clamp scale
 								float[] f = new float[9];
@@ -114,14 +123,14 @@ public class FestiwalMap extends BaseActivity {
 									scaleFactor = SCALE_MIN / scale;
 								}
 
-								matrix.postScale( scaleFactor, scaleFactor, midPoint.x, midPoint.y );
+								matrix.postScale(scaleFactor, scaleFactor, midPoint.x, midPoint.y);
                             }
                         }
                         break;
                 }
 
                 view.setImageMatrix(matrix);
-
+                buttonOne.setImageMatrix(matrix);
                 return true;
             }
 

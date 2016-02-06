@@ -12,13 +12,14 @@
     <include android:layout_width="match_parent"
         android:layout_height="match_parent"
         layout="@layout/content_festiwal_map" />
-    <Button
+    <ImageView
         android:id="@+id/ButtonClick"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:text="OK"
         android:layout_x="355px"
-        android:scaleType="fitCenter"
         android:textSize="1sp"
-        android:layout_y="290px" />
+        android:layout_y="290px"
+        android:scaleType="matrix"
+        android:src="@drawable/button_mapa"/>
 </AbsoluteLayout >

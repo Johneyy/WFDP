@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="pwr.festiwalujecie1232535.FestiwalMap">
+    tools:context="pwr.festiwalujecie1232535.FestiwalMap"
+    android:id="@+id/mapActivity"
+
+    >
     <include android:layout_width="match_parent"
         android:layout_height="match_parent"
         layout="@layout/content_festiwal_map" />
-</android.support.design.widget.CoordinatorLayout>
+    <Button
+        android:id="@+id/ButtonClick"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:text="OK"
+        android:layout_x="355px"
+        android:scaleType="fitCenter"
+        android:textSize="1sp"
+        android:layout_y="290px" />
+</AbsoluteLayout >

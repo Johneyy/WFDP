@@ -5,9 +5,14 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.Toolbar;
 
 public class FestiwalMap extends BaseActivity {
     ImageView imageDetail;
@@ -21,12 +26,29 @@ public class FestiwalMap extends BaseActivity {
     static final int ZOOM = 2;
     int mode = NONE;
 
+    public void popUpWinInformation() {
+
+        LayoutInflater inflater  = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View layoutt = inflater.inflate(R.layout.map_pop_up, null);
+        final PopupWindow popupWindow = new PopupWindow(
+                layoutt,
+                Toolbar.LayoutParams.WRAP_CONTENT,
+                Toolbar.LayoutParams.WRAP_CONTENT);
+        popupWindow.showAtLocation(findViewById(R.id.mapActivity), Gravity.NO_GRAVITY,200,600); //#TODO zmiana zhardcodowanych wspolrzednych na wyliczane dane
+    }
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_festiwal_map);
         setFullscreen();
+        Button buttonOne = (Button) findViewById(R.id.ButtonClick);
+        buttonOne.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                popUpWinInformation();
+            }
+        });
+
         imageDetail = (ImageView) findViewById(R.id.logoGreenBr);
         imageDetail.setScaleX(2.4F);
         imageDetail.setScaleY(2);
@@ -81,6 +103,7 @@ public class FestiwalMap extends BaseActivity {
                             if (newDist > 10f) {
                                 matrix.set(savedMatrix);
                                 float scale = newDist / oldDist;
+                                System.out.println(scale + "SCALE");
                                 matrix.postScale(scale, scale, midPoint.x, midPoint.y);
                             }
                         }
@@ -88,7 +111,6 @@ public class FestiwalMap extends BaseActivity {
 
                 }
                 view.setImageMatrix(matrix);
-
                 return true;
             }
 

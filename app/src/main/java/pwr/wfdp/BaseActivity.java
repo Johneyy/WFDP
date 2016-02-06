@@ -71,18 +71,19 @@ public class BaseActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) { //PLAN FESTIWALU
+        if (id == R.id.nav_festivalplan) { //PLAN FESTIWALU
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) { //MAPA
+        } else if (id == R.id.nav_eventmap) { //MAPA
             System.out.println("SDASDASDASADSSA");
             Intent i = new Intent(getBaseContext(), FestiwalMap.class);
             startActivity(i);
             return true;
-        } else if (id == R.id.nav_slideshow) { //LISTA STANOWISK
+        } else if (id == R.id.nav_standslist) { //LISTA STANOWISK
 
-        } else if (id == R.id.nav_manage) { //STYLE PIWNE
+        } else if (id == R.id.nav_beerstyles) { //STYLE PIWNE
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

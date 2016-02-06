@@ -76,6 +76,10 @@ public class BaseActivity extends AppCompatActivity
             Intent i = new Intent(getBaseContext(), FestiwalMap.class);
             startActivity(i);
             return true;
+        } else if (id == R.id.nav_events) { //Wydarzenia
+            Intent i = new Intent(getBaseContext(), EventsActivity.class);
+            startActivity(i);
+            return true;
         } else if (id == R.id.nav_standslist) { //LISTA STANOWISK
 
         } else if (id == R.id.nav_beerstyles) { //STYLE PIWNE

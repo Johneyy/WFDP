@@ -15,6 +15,9 @@ import android.widget.PopupWindow;
 import android.widget.Toolbar;
 
 public class FestiwalMap extends BaseActivity {
+	private static final float SCALE_MIN = 0.5f;
+	private static final float SCALE_MAX = 2f;
+
     ImageView imageDetail;
     Matrix matrix = new Matrix();
     Matrix savedMatrix = new Matrix();
@@ -61,22 +64,18 @@ public class FestiwalMap extends BaseActivity {
          * set on touch listner on image
          */
         imageDetail.setOnTouchListener(new View.OnTouchListener() {
-
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-
                 ImageView view = (ImageView) v;
-                System.out.println("matrix=" + savedMatrix.toString());
+
                 switch (event.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:
-
                         savedMatrix.set(matrix);
                         startPoint.set(event.getX(), event.getY());
                         mode = DRAG;
                         break;
 
                     case MotionEvent.ACTION_POINTER_DOWN:
-
                         oldDist = spacing(event);
 
                         if (oldDist > 10f) {
@@ -87,10 +86,8 @@ public class FestiwalMap extends BaseActivity {
                         break;
 
                     case MotionEvent.ACTION_UP:
-
                     case MotionEvent.ACTION_POINTER_UP:
                         mode = NONE;
-
                         break;
 
                     case MotionEvent.ACTION_MOVE:
@@ -101,16 +98,30 @@ public class FestiwalMap extends BaseActivity {
                         } else if (mode == ZOOM) {
                             float newDist = spacing(event);
                             if (newDist > 10f) {
-                                matrix.set(savedMatrix);
-                                float scale = newDist / oldDist;
-                                System.out.println(scale + "SCALE");
-                                matrix.postScale(scale, scale, midPoint.x, midPoint.y);
+								matrix.set( savedMatrix );
+
+								// Clamp scale
+								float[] f = new float[9];
+								matrix.getValues( f );
+								float scale = f[Matrix.MSCALE_X]; // assume scale is uniform
+								float scaleFactor = newDist / oldDist;
+
+								float newScale = scale * scaleFactor;
+
+								if ( newScale > SCALE_MAX ) {
+									scaleFactor = SCALE_MAX / scale;
+								} else if ( newScale < SCALE_MIN ) {
+									scaleFactor = SCALE_MIN / scale;
+								}
+
+								matrix.postScale( scaleFactor, scaleFactor, midPoint.x, midPoint.y );
                             }
                         }
                         break;
-
                 }
+
                 view.setImageMatrix(matrix);
+
                 return true;
             }
 

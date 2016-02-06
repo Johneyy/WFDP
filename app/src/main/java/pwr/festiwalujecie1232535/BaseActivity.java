@@ -1,9 +1,6 @@
 package pwr.festiwalujecie1232535;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -75,7 +72,10 @@ public class BaseActivity extends AppCompatActivity
         if (id == R.id.nav_camera) { //PLAN FESTIWALU
             // Handle the camera action
         } else if (id == R.id.nav_gallery) { //MAPA
-
+            System.out.println("SDASDASDASADSSA");
+            Intent i = new Intent(getBaseContext(), FestiwalMap.class);
+            startActivity(i);
+            return true;
         } else if (id == R.id.nav_slideshow) { //LISTA STANOWISK
 
         } else if (id == R.id.nav_manage) { //STYLE PIWNE

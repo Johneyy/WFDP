@@ -5,12 +5,12 @@
         <item android:title="Festiwal">
             <menu>
                 <item
-                    android:id="@+id/nav_camera"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:id="@+id/nav_festivalplan"
+                    android:icon="@drawable/ic_festivalplan"
                     android:title="Plan festiwalu" />
                 <item
-                    android:id="@+id/nav_gallery"
-                    android:icon="@drawable/ic_menu_gallery"
+                    android:id="@+id/nav_eventmap"
+                    android:icon="@drawable/ic_eventmap"
                     android:title="Mapa" />
             </menu>
         </item>
@@ -20,12 +20,12 @@
     <item android:title="Piwa">
         <menu>
             <item
-                android:id="@+id/nav_slideshow"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:id="@+id/nav_standslist"
+                android:icon="@drawable/ic_standslist"
                 android:title="Lista stanowisk" />
             <item
-                android:id="@+id/nav_manage"
-                android:icon="@drawable/ic_menu_manage"
+                android:id="@+id/nav_beerstyles"
+                android:icon="@drawable/ic_hop"
                 android:title="Style piwne" />
 
         </menu>

@@ -5,12 +5,11 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-public class FestiwalMap extends AppCompatActivity {
+public class FestiwalMap extends BaseActivity {
     ImageView imageDetail;
     Matrix matrix = new Matrix();
     Matrix savedMatrix = new Matrix();
@@ -27,9 +26,13 @@ public class FestiwalMap extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_festiwal_map);
+        setFullscreen();
         imageDetail = (ImageView) findViewById(R.id.logoGreenBr);
-        imageDetail.setScaleX(2);
+        imageDetail.setScaleX(2.4F);
         imageDetail.setScaleY(2);
+        imageDetail.setX(1240);
+        imageDetail.setY(540);
+
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // orientation Landscape
 
         /**

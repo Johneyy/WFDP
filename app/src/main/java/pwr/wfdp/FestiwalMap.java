@@ -1,6 +1,7 @@
 package pwr.wfdp;
 
 import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.os.Bundle;
@@ -27,6 +28,10 @@ public class FestiwalMap extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_festiwal_map);
         imageDetail = (ImageView) findViewById(R.id.logoGreenBr);
+        imageDetail.setScaleX(2);
+        imageDetail.setScaleY(2);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // orientation Landscape
+
         /**
          * set on touch listner on image
          */

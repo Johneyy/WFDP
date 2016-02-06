@@ -12,6 +12,10 @@
                     android:id="@+id/nav_eventmap"
                     android:icon="@drawable/ic_eventmap"
                     android:title="Mapa" />
+                <item
+                    android:id="@+id/nav_events"
+                    android:icon="@drawable/ic_standslist"
+                    android:title="Wydarzenia" />
             </menu>
         </item>
 

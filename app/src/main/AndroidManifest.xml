@@ -21,6 +21,10 @@
         <activity
             android:name=".FestiwalMap"
             android:label="@string/title_activity_festiwal_map"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EventsActivity"
+            android:label="@string/title_activity_events"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

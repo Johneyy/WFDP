@@ -98,12 +98,12 @@ public class FestiwalMap extends BaseActivity {
         float displayRatio = displaySize.x / (float)displaySize.y;
         float ratio = displayRatio * imageRatio;
 
-        imageDetail.setScaleX( ratio );
-        imageDetail.setScaleY( 2 );
+        imageDetail.setScaleX(2.4F);
+        imageDetail.setScaleY(2);
 
         // TODO: Wykminic jak wycentrowac mapke...
-        imageDetail.setX( imageSize.x * 0.5f );
-        imageDetail.setY( imageSize.y * 0.5f );
+        imageDetail.setX(1240);
+        imageDetail.setY(540);
 
         /**
          * set on touch listner on image

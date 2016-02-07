@@ -4,38 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AboutStand"
     tools:showIn="@layout/app_bar_events"
     android:background="@color/festival_grey">
 
     <!-- Editext for Search -->
-    <EditText android:id="@+id/inputSearch"
+
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="Wyszukaj wydarzenia.."
-        android:inputType="textVisiblePassword"
-        android:textColor="#e89946"
-        android:textColorHint="#e89946"
-        android:textSize="20dp" />
+        android:background="#4b4b4b"
+        android:id="@+id/frameLayout"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        >
+
+        <EditText android:id="@+id/inputSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:hint="Wyszukaj wydarzenia.."
+            android:inputType="textVisiblePassword"
+            android:textColor="#e89946"
+            android:textColorHint="#e89946"
+            android:textSize="20sp"
+                  android:paddingTop="@dimen/activity_vertical_margin"
+                  android:paddingBottom="@dimen/activity_vertical_margin"
+                  android:paddingLeft="@dimen/activity_horizontal_margin"
+                  android:paddingRight="@dimen/activity_horizontal_margin"
+                  android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+    </FrameLayout>
 
     <!-- List View -->
+
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/list_view"
-        android:layout_below="@+id/inputSearch"
         android:layout_centerHorizontal="true"
         android:divider="@color/festival_orange"
         android:dividerHeight="0.5px"
         android:choiceMode="singleChoice"
         android:listSelector="#4b4b4b"
-        android:paddingTop="20dp" />
-
+        android:paddingTop="20dp"
+        android:layout_below="@+id/frameLayout"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
 
 </RelativeLayout>

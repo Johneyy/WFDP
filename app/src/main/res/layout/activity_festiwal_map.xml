@@ -20,6 +20,6 @@
         android:layout_x="355px"
         android:textSize="1sp"
         android:layout_y="290px"
-        android:scaleType="matrix"
+        android:scaleType="fitCenter"
         android:src="@drawable/button_mapa"/>
 </AbsoluteLayout >

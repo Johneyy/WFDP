@@ -25,6 +25,10 @@
         <activity
             android:name=".EventsActivity"
             android:label="@string/title_activity_events"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AboutBeer"
+            android:label="@string/title_activity_about_beer"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

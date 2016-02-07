@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="1200px"
-    android:layout_height="500px"
-    android:background="@color/abc_search_url_text_normal">
+    android:layout_width="800px"
+    android:layout_height="1000px"
+    android:background="@color/white">
     <TextView
         android:layout_gravity="center"
         android:layout_width="300px"
         android:layout_height="200px"
         android:text="Browar Pity - Jebać Drapałe"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/festival_orange"
         />
     <Button
         android:id="@+id/btn_close_popup"
-        android:layout_width="300px"
+        android:layout_width="200px"
         android:layout_height="100px"
         android:layout_gravity="center"
-        android:text="Close" />
+        android:text="Zamkij"
+        android:textSize="6sp" />/>
+    <Button
+        android:id="@+id/about_beer"
+        android:layout_width="200px"
+        android:layout_height="100px"
+        android:layout_gravity="center"
+        android:text="O stoisku"
+        android:textSize="6sp" />
 </LinearLayout >

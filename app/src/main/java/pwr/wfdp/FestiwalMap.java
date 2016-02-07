@@ -59,7 +59,7 @@ public class FestiwalMap extends BaseActivity {
         Button about_beer = (Button) layoutt.findViewById(R.id.about_beer);
         about_beer.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(getBaseContext(), AboutBeer.class);
+                Intent i = new Intent(getBaseContext(), AboutStand.class);
                 startActivity(i);
             }
         });

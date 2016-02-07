@@ -10,16 +10,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AboutStand"
-    tools:showIn="@layout/app_bar_events">
+    tools:showIn="@layout/app_bar_events"
+    android:background="@color/festival_grey">
 
-    <TextView
+    <!-- Editext for Search -->
+    <EditText android:id="@+id/inputSearch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Wyszukaj wydarzenia.."
+        android:inputType="textVisiblePassword"
+        android:textColor="#e89946"
+        android:textColorHint="#e89946"
+        android:textSize="20dp" />
+
+    <!-- List View -->
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SMACZNE PIWO"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
+        android:id="@+id/list_view"
+        android:layout_below="@+id/inputSearch"
         android:layout_centerHorizontal="true"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:textColor="@color/festival_orange" />
+        android:divider="@color/festival_orange"
+        android:dividerHeight="0.5px"
+        android:choiceMode="singleChoice"
+        android:listSelector="#4b4b4b"
+        android:paddingTop="20dp" />
+
+
+
 </RelativeLayout>

@@ -36,17 +36,18 @@ public class FestiwalMap extends BaseActivity {
     private float oldDist = 1f;
     private int mode = NONE;
 
-    float ButtonX = 0;
-    float ButtonY = 0;  //TODO nalezy rozszerzyc button o te zmienne
-    public void popUpWinInformation() {
+    private float buttonX = 0;
+    private float buttonY = 0;
+    private int buttonSize = 40;
 
+    private void popUpWinInformation( int x, int y ) {
         LayoutInflater inflater  = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View layoutt = inflater.inflate(R.layout.map_pop_up, null);
         final PopupWindow popupWindow = new PopupWindow(
                 layoutt,
                 Toolbar.LayoutParams.WRAP_CONTENT,
                 Toolbar.LayoutParams.WRAP_CONTENT);
-        popupWindow.showAtLocation(findViewById(R.id.mapActivity), Gravity.NO_GRAVITY, 200, 600); //#TODO zmiana zhardcodowanych wspolrzednych na wyliczane dane
+        popupWindow.showAtLocation(findViewById(R.id.mapActivity), Gravity.NO_GRAVITY, x, y);
 
         Button closed = (Button) layoutt.findViewById(R.id.btn_close_popup);
         closed.setOnClickListener(new Button.OnClickListener() {
@@ -55,7 +56,6 @@ public class FestiwalMap extends BaseActivity {
             }
         });
 
-
         Button about_beer = (Button) layoutt.findViewById(R.id.about_beer);
         about_beer.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
@@ -63,24 +63,31 @@ public class FestiwalMap extends BaseActivity {
                 startActivity(i);
             }
         });
-
-
     }
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_festiwal_map);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_festiwal_map );
         setFullscreen();
 
         buttonOne = (ImageView) findViewById(R.id.ButtonClick);
-        ButtonX = 355;
-        ButtonY = 290;
-        buttonOne.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                popUpWinInformation();
+        // Pozycja jest zjebana, w zaden sposob nie jest zwiazana z pozycja tego punktu na grafice...
+        buttonX = 396;
+        buttonY = 316;
+
+        // Trzeba zahardkodowac 20px przesuniecia na osi X, inaczej button zle sie ustawia...
+        buttonOne.setX( buttonX - buttonSize / 2 - 20 );
+        buttonOne.setY( buttonY - buttonSize / 2 );
+
+        buttonOne.setOnClickListener( new Button.OnClickListener()
+        {
+            public void onClick( View v )
+            {
+                popUpWinInformation( (int)v.getX(), (int)v.getY() );
             }
-        });
+        } );
 
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // orientation Landscape
 
@@ -164,14 +171,17 @@ public class FestiwalMap extends BaseActivity {
                         }
                         break;
                 }
-                System.out.println(matrix);
-                view.setImageMatrix(matrix);
+
+                view.setImageMatrix( matrix );
+
                 float[] f = new float[9];
                 matrix.getValues(f);
-                buttonOne.setX(ButtonX + f[2]*2.4f); // te mnożniki są z dupy ale działają dla mojej rozdzielczości i tylko przy poruszaniu mapa
-                                                     // TODO znajdz unikalny sposob jak to zorbic
-                buttonOne.setY(ButtonY + f[5]*2);
-                System.out.println(buttonOne.getX() + " -- "+ buttonOne.getY());
+
+                // Trzeba zahardkodowac 20px przesuniecia na osi X, inaczej button zle sie ustawia...
+                buttonOne.setX( buttonX * f[Matrix.MSCALE_X] - buttonSize / 2 + f[Matrix.MTRANS_X] * 2.4f - 20 );
+                buttonOne.setY( buttonY * f[Matrix.MSCALE_Y] - buttonSize / 2 + f[Matrix.MTRANS_Y] * 2 );
+                buttonOne.setScaleX( f[Matrix.MSCALE_X] );
+                buttonOne.setScaleY( f[Matrix.MSCALE_Y] );
 
                 return true;
             }

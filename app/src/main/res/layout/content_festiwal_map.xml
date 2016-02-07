@@ -13,5 +13,6 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="matrix"
-        android:src="@drawable/stoiska" />
+        android:src="@drawable/stoiska"
+        android:background="@color/festival_grey" />
 </RelativeLayout>

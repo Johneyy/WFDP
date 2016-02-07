@@ -10,6 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AboutStand"
-    tools:showIn="@layout/activity_about_stand">
+    tools:showIn="@layout/app_bar_stand">
 
 </RelativeLayout>

@@ -3,9 +3,13 @@ package pwr.wfdp;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.Point;
 import android.graphics.PointF;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -19,17 +23,18 @@ public class FestiwalMap extends BaseActivity {
 	private static final float SCALE_MIN = 1f;
 	private static final float SCALE_MAX = 2f;
 
-    ImageView imageDetail;
-    ImageView buttonOne;
-    Matrix matrix = new Matrix();
-    Matrix savedMatrix = new Matrix();
-    PointF startPoint = new PointF();
-    PointF midPoint = new PointF();
-    float oldDist = 1f;
-    static final int NONE = 0;
-    static final int DRAG = 1;
-    static final int ZOOM = 2;
-    int mode = NONE;
+    private static final int NONE = 0;
+    private static final int DRAG = 1;
+    private static final int ZOOM = 2;
+
+    private ImageView imageDetail;
+    private ImageView buttonOne;
+    private Matrix matrix = new Matrix();
+    private Matrix savedMatrix = new Matrix();
+    private PointF startPoint = new PointF();
+    private PointF midPoint = new PointF();
+    private float oldDist = 1f;
+    private int mode = NONE;
 
     float ButtonX = 0;
     float ButtonY = 0;  //TODO nalezy rozszerzyc button o te zmienne
@@ -77,13 +82,28 @@ public class FestiwalMap extends BaseActivity {
             }
         });
 
-        imageDetail = (ImageView) findViewById(R.id.logoGreenBr);
-        imageDetail.setScaleX(2.4F);
-        imageDetail.setScaleY(2);
-        imageDetail.setX(1240);
-        imageDetail.setY(540);
-
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // orientation Landscape
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point displaySize = new Point();
+        display.getSize( displaySize );
+
+        imageDetail = (ImageView)findViewById( R.id.logoGreenBr );
+
+        Bitmap bmp = BitmapFactory.decodeResource( getResources(), R.drawable.stoiska );
+        Point imageSize = new Point( bmp.getWidth(), bmp.getHeight() );
+
+        // TODO: Trzeba uwzglednic wysokosc tego paska z bateria/godzina etc, wtedy beda dobre wymiary
+        float imageRatio = imageSize.x / (float)imageSize.y;
+        float displayRatio = displaySize.x / (float)displaySize.y;
+        float ratio = displayRatio * imageRatio;
+
+        imageDetail.setScaleX( ratio );
+        imageDetail.setScaleY( 2 );
+
+        // TODO: Wykminic jak wycentrowac mapke...
+        imageDetail.setX( imageSize.x * 0.5f );
+        imageDetail.setY( imageSize.y * 0.5f );
 
         /**
          * set on touch listner on image

@@ -1,58 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AboutStand"
     tools:showIn="@layout/app_bar_stand">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AleBrowar"
-        android:id="@+id/textView"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColor="@color/festival_orange"
-        android:layout_marginLeft="38dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="62dp"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/ale_browar"
-        android:minHeight="150dp"
-        android:minWidth="150dp"
-        android:nestedScrollingEnabled="false"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/about_stand_scrollView">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Obecnie jesteśmy producentem działającym w strukturach kontraktowych, moce produkcyjne dzierżawimy w małym, rodzinnym browarze znajdującym się w województwie pomorskim (Browar Gościszewo). Nasza inicjatywa zadebiutowała na rynku w maju 2012 roku podczas III Festiwalu Dobrego Piwa. Powołując do życia browar od początku stawialiśmy na najwyższą jakość i innowacyjność naszych piw. Dlatego warzymy wyłącznie piwa górnej fermentacji, do tej pory będące nowością na naszym rynku. Używamy tylko naturalnych surowców i bazujemy na własnych, dopracowanych recepturach."
-        android:id="@+id/textView2"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <RelativeLayout
+            tools:context=".AboutStand"
+            tools:showIn="@layout/app_bar_stand"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp" />
-</RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AleBrowar"
+                android:id="@+id/textView"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/festival_orange"
+                android:layout_marginLeft="38dp"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="62dp"
+                android:layout_alignTop="@+id/imageView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView"
+                android:src="@drawable/ale_browar"
+                android:minHeight="150dp"
+                android:minWidth="150dp"
+                android:nestedScrollingEnabled="false"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Obecnie jesteśmy producentem działającym w strukturach kontraktowych, moce produkcyjne dzierżawimy w małym, rodzinnym browarze znajdującym się w województwie pomorskim (Browar Gościszewo). Nasza inicjatywa zadebiutowała na rynku w maju 2012 roku podczas III Festiwalu Dobrego Piwa. Powołując do życia browar od początku stawialiśmy na najwyższą jakość i innowacyjność naszych piw. Dlatego warzymy wyłącznie piwa górnej fermentacji, do tej pory będące nowością na naszym rynku. Używamy tylko naturalnych surowców i bazujemy na własnych, dopracowanych recepturach."
+                android:id="@+id/textView2"
+                android:layout_below="@+id/imageView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listView"
+                android:layout_below="@+id/textView2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="false"
+                android:layout_marginTop="15dp"
+                android:clickable="false"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentTop="false"
+                />
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>

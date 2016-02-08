@@ -56,7 +56,7 @@ public class FestiwalMap extends BaseActivity {
             }
         });
 
-        Button about_beer = (Button) layoutt.findViewById(R.id.about_beer);
+        Button about_beer = (Button) layoutt.findViewById(R.id.btn_about_beer);
         about_beer.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(), AboutStand.class);
@@ -95,7 +95,7 @@ public class FestiwalMap extends BaseActivity {
         Point displaySize = new Point();
         display.getSize( displaySize );
 
-        imageDetail = (ImageView)findViewById( R.id.logoGreenBr );
+        imageDetail = (ImageView)findViewById( R.id.festival_map );
 
         Bitmap bmp = BitmapFactory.decodeResource( getResources(), R.drawable.stoiska );
         Point imageSize = new Point( bmp.getWidth(), bmp.getHeight() );

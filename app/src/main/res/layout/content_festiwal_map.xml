@@ -9,7 +9,7 @@
     tools:context="pwr.festiwalujecie1232535.FestiwalMap"
     tools:showIn="@layout/activity_festiwal_map">
     <ImageView
-        android:id="@+id/logoGreenBr"
+        android:id="@+id/festival_map"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="matrix"

@@ -1,39 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="800px"
-    android:layout_height="1000px"
-    android:background="#4b4b4b">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#4b4b4b"
+               android:padding="10dp"
+               android:orientation="vertical">
 
     <TextView
         android:layout_gravity="center"
-        android:layout_width="300px"
-        android:layout_height="200px"
-        android:text="Browar Pity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Stanowisko 3"
         android:textColor="@color/festival_orange"
-        />
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/standId"
+        android:textStyle="italic"/>
 
-    <Button
-        android:id="@+id/btn_close_popup"
-        android:layout_width="250px"
-        android:layout_height="100px"
-        android:layout_gravity="center_vertical"
-        android:text="Zamkij"
-        android:textSize="14sp"
-        android:background="@drawable/custom_button"
-        android:textColor="#ffffff" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="AleBrowar"
+        android:textColor="@color/festival_orange"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/standName"
+        android:textStyle="bold"
+        android:autoText="false"
+        android:gravity="center_vertical|center_horizontal|fill_vertical"
+        android:textSize="22sp"/>
 
-    <Button
-        android:id="@+id/about_beer"
-        android:layout_width="250px"
-        android:layout_height="100px"
-        android:layout_gravity="center_vertical"
-        android:text="Info"
-        android:textSize="14sp"
-        android:background="@drawable/custom_button"
-        android:textColor="#ffffff" /><![CDATA[
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <Button
+            android:id="@+id/btn_close_popup"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Zamknij"
+            android:textSize="14sp"
+            android:background="@drawable/custom_button"
+            android:textColor="#ffffff"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/btn_about_beer"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Info"
+            android:textSize="14sp"
+            android:background="@drawable/custom_button"
+            android:textColor="#ffffff" />
+    </LinearLayout><![CDATA[
+
+
     />
 
 
-    ]]>
+
+]]>
 </LinearLayout >

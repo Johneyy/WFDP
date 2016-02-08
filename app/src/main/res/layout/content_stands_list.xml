@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".EventsActivity"
-    tools:showIn="@layout/app_bar_events"
+    tools:context=".StandsListActivity"
+    tools:showIn="@layout/app_bar_stands_list"
     android:background="@color/festival_grey">
 
     <!-- Editext for Search -->
@@ -20,19 +20,19 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         >
 
-        <EditText android:id="@+id/inputSearch"
+        <EditText android:id="@+id/inputSearch_standsList"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:hint="Wyszukaj wydarzenia.."
+            android:hint="Wyszukaj stanowisko.."
             android:inputType="textVisiblePassword"
             android:textColor="#e89946"
             android:textColorHint="#e89946"
             android:textSize="20sp"
-                  android:paddingTop="@dimen/activity_vertical_margin"
-                  android:paddingBottom="@dimen/activity_vertical_margin"
-                  android:paddingLeft="@dimen/activity_horizontal_margin"
-                  android:paddingRight="@dimen/activity_horizontal_margin"
-                  android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
     </FrameLayout>
 
     <!-- List View -->
@@ -40,7 +40,7 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list_view"
+        android:id="@+id/stands_list_view"
         android:layout_centerHorizontal="true"
         android:divider="@color/festival_orange"
         android:dividerHeight="0.5px"

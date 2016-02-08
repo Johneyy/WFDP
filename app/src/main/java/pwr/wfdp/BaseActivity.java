@@ -70,20 +70,22 @@ public class BaseActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_festivalplan) { //PLAN FESTIWALU
-            // Handle the camera action
+        if (id == R.id.nav_events) { //Wydarzenia
+            Intent i = new Intent(getBaseContext(), EventsActivity.class);
+            startActivity(i);
+            return true;
         } else if (id == R.id.nav_eventmap) { //MAPA
             Intent i = new Intent(getBaseContext(), FestiwalMap.class);
             startActivity(i);
             return true;
-        } else if (id == R.id.nav_events) { //Wydarzenia
-            Intent i = new Intent(getBaseContext(), EventsActivity.class);
+        } else if (id == R.id.nav_standslist) { //LISTA STANOWISK
+            Intent i = new Intent(getBaseContext(), StandsListActivity.class);
             startActivity(i);
             return true;
-        } else if (id == R.id.nav_standslist) { //LISTA STANOWISK
-
         } else if (id == R.id.nav_beerstyles) { //STYLE PIWNE
-
+            Intent i = new Intent(getBaseContext(), BeersActivity.class);
+            startActivity(i);
+            return true;
         }
 
 

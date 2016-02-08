@@ -21,6 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_events" />
+    <include layout="@layout/content_stands_list" />
 
 </android.support.design.widget.CoordinatorLayout>

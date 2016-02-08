@@ -9,4 +9,6 @@
     <string name="title_activity_festiwal_map">FestiwalMap</string>
     <string name="title_activity_events">Wydarzenia</string>
     <string name="title_activity_about_beer">Opis stanowiska</string>
+    <string name="title_activity_stands_list">Lista stanowisk</string>
+    <string name="title_activity_beers">Style piwne</string>
 </resources>

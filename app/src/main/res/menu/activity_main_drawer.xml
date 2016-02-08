@@ -5,17 +5,13 @@
         <item android:title="Festiwal">
             <menu>
                 <item
-                    android:id="@+id/nav_festivalplan"
+                    android:id="@+id/nav_events"
                     android:icon="@drawable/ic_festivalplan"
-                    android:title="Plan festiwalu" />
+                    android:title="Wydarzenia" />
                 <item
                     android:id="@+id/nav_eventmap"
                     android:icon="@drawable/ic_eventmap"
                     android:title="Mapa" />
-                <item
-                    android:id="@+id/nav_events"
-                    android:icon="@drawable/ic_standslist"
-                    android:title="Wydarzenia" />
             </menu>
         </item>
 

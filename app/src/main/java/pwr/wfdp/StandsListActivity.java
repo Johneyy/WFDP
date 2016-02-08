@@ -42,8 +42,9 @@ public class StandsListActivity extends BaseActivity
 
         // Listview Data
         String products[] = {"Stanowisko 1 - 100 Mostów","Stanowisko 2 - Against The Grain",
-                "Stanowisko 3 - Alebrowar", "Stanowisko 5 - Amber", "Stanowisko 6 - Anchor Brewing",
-                "Stanowisko 7 - Artezan", "Stanowisko 8 - Bakalar","Stanowisko 9 - Bazyliszek",
+                "Stanowisko 3 - Alebrowar","Stanowisko 4 - Amager", "Stanowisko 5 - Amber",
+                "Stanowisko 6 - Anchor Brewing", "Stanowisko 7 - Artezan",
+                "Stanowisko 8 - Bakalar","Stanowisko 9 - Bazyliszek",
                 "Stanowisko 10 - Beavertown", "Stanowisko 11 - Bednary","Stanowisko 12 - Beer City",
                 "Stanowisko 22 - Brasserie de Pays Flamand", "Stanowisko 26 - BrewByNumbers",
                 "Stanowisko 32 - Cernovar", "Stanowisko 45 - Dziedzice",

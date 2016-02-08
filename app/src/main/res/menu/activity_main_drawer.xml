@@ -27,7 +27,10 @@
                 android:id="@+id/nav_beerstyles"
                 android:icon="@drawable/ic_hop"
                 android:title="Style piwne" />
-
+            <item
+                android:id="@+id/nav_beersvote"
+                android:icon="@drawable/ic_hop"
+                android:title="Głosowanie" />
         </menu>
     </item>
 

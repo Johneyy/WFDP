@@ -86,8 +86,11 @@ public class BaseActivity extends AppCompatActivity
             Intent i = new Intent(getBaseContext(), BeersActivity.class);
             startActivity(i);
             return true;
+        } else if (id == R.id.nav_beersvote) { //STYLE PIWNE
+            Intent i = new Intent(getBaseContext(), VoteActivity.class);
+            startActivity(i);
+            return true;
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

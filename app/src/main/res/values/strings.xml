@@ -11,4 +11,12 @@
     <string name="title_activity_about_beer">Opis stanowiska</string>
     <string name="title_activity_stands_list">Lista stanowisk</string>
     <string name="title_activity_beers">Style piwne</string>
+    <string name="title_activity_vote">Głosowanie</string>
+
+    <string name="beer_prompt">Wybierz piwo</string>
+    <string-array name="beer_array">
+        <item>Litovel</item>
+        <item>Zacne</item>
+        <item>Clock</item>
+    </string-array>
 </resources>

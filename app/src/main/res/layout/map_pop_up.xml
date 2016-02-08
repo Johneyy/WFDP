@@ -4,25 +4,36 @@
     android:layout_width="800px"
     android:layout_height="1000px"
     android:background="#4b4b4b">
+
     <TextView
         android:layout_gravity="center"
         android:layout_width="300px"
         android:layout_height="200px"
-        android:text="Browar Pity - Jebać Drapałe"
+        android:text="Browar Pity"
         android:textColor="@color/festival_orange"
         />
+
     <Button
         android:id="@+id/btn_close_popup"
-        android:layout_width="200px"
+        android:layout_width="250px"
         android:layout_height="100px"
-        android:layout_gravity="center"
+        android:layout_gravity="center_vertical"
         android:text="Zamkij"
-        android:textSize="8sp" />/>
+        android:textSize="14sp"
+        android:background="@drawable/custom_button"
+        android:textColor="#ffffff" />
+
     <Button
         android:id="@+id/about_beer"
-        android:layout_width="200px"
+        android:layout_width="250px"
         android:layout_height="100px"
-        android:layout_gravity="center"
-        android:text="O stoisku"
-        android:textSize="8sp" />
+        android:layout_gravity="center_vertical"
+        android:text="Info"
+        android:textSize="14sp"
+        android:background="@drawable/custom_button"
+        android:textColor="#ffffff" /><![CDATA[
+    />
+
+
+    ]]>
 </LinearLayout >

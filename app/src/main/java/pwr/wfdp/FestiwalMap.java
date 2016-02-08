@@ -100,13 +100,12 @@ public class FestiwalMap extends BaseActivity {
         Bitmap bmp = BitmapFactory.decodeResource( getResources(), R.drawable.stoiska );
         Point imageSize = new Point( bmp.getWidth(), bmp.getHeight() );
 
-        // TODO: Trzeba uwzglednic wysokosc tego paska z bateria/godzina etc, wtedy beda dobre wymiary
         float imageRatio = imageSize.x / (float)imageSize.y;
-        float displayRatio = displaySize.x / (float)displaySize.y;
+        float displayRatio = ( displaySize.x + getStatusBarHeight() ) / (float)displaySize.y;
         float ratio = displayRatio * imageRatio;
 
-        imageDetail.setScaleX(2.4F);
-        imageDetail.setScaleY(2);
+        imageDetail.setScaleX( 2.4f );
+        imageDetail.setScaleY( 2 );
 
         // TODO: Wykminic jak wycentrowac mapke...
         imageDetail.setX(1240);
@@ -118,7 +117,6 @@ public class FestiwalMap extends BaseActivity {
         imageDetail.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                ImageView view = (ImageView) v;
 
                 switch (event.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:
@@ -172,16 +170,7 @@ public class FestiwalMap extends BaseActivity {
                         break;
                 }
 
-                view.setImageMatrix( matrix );
-
-                float[] f = new float[9];
-                matrix.getValues(f);
-
-                // Trzeba zahardkodowac 20px przesuniecia na osi X, inaczej button zle sie ustawia...
-                buttonOne.setX( buttonX * f[Matrix.MSCALE_X] - buttonSize / 2 + f[Matrix.MTRANS_X] * 2.4f - 20 );
-                buttonOne.setY( buttonY * f[Matrix.MSCALE_Y] - buttonSize / 2 + f[Matrix.MTRANS_Y] * 2 );
-                buttonOne.setScaleX( f[Matrix.MSCALE_X] );
-                buttonOne.setScaleY( f[Matrix.MSCALE_Y] );
+                applyMatrixTransform();
 
                 return true;
             }
@@ -199,9 +188,30 @@ public class FestiwalMap extends BaseActivity {
                 point.set(x / 2, y / 2);
             }
         });
-
     }
 
+    private void applyMatrixTransform() {
+        imageDetail.setImageMatrix( matrix );
+
+        float[] f = new float[9];
+        matrix.getValues(f);
+
+        // Trzeba zahardkodowac 20px przesuniecia na osi X, inaczej button zle sie ustawia...
+        buttonOne.setX( buttonX * f[Matrix.MSCALE_X] - buttonSize / 2 + f[Matrix.MTRANS_X] * 2.4f - 20 );
+        buttonOne.setY( buttonY * f[Matrix.MSCALE_Y] - buttonSize / 2 + f[Matrix.MTRANS_Y] * 2 );
+        buttonOne.setScaleX( f[Matrix.MSCALE_X] );
+        buttonOne.setScaleY( f[Matrix.MSCALE_Y] );
+    }
+
+    private int getStatusBarHeight() {
+        // https://stackoverflow.com/questions/3407256/height-of-status-bar-in-android
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
 }
 
 

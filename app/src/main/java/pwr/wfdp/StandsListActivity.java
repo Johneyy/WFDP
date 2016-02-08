@@ -41,9 +41,12 @@ public class StandsListActivity extends BaseActivity
 
 
         // Listview Data
-        String products[] = {"Stoisko 8 - Bakalar", "Stoisko 12 - Beer City",
-                "Stoisko 22 - Brasserie de Pays Flamand", "Stoisko 26 - BrewByNumbers",
-                "Stoisko 32 - Cernovar", "Stoisko 45 - Dziedzice",
+        String products[] = {"Stanowisko 1 - 100 Mostów","Stanowisko 2 - Against The Grain",
+                "Stanowisko 3 - Alebrowar", "Stanowisko 5 - Amber", "Stanowisko 6 - Anchor Brewing",
+                "Stanowisko 7 - Artezan", "Stanowisko 8 - Bakalar","Stanowisko 9 - Bazyliszek",
+                "Stanowisko 10 - Beavertown", "Stanowisko 11 - Bednary","Stanowisko 12 - Beer City",
+                "Stanowisko 22 - Brasserie de Pays Flamand", "Stanowisko 26 - BrewByNumbers",
+                "Stanowisko 32 - Cernovar", "Stanowisko 45 - Dziedzice",
                 "Stanowisko 84 - Miedzianka", "Stanowisko 94 - Opat"};
 
         lv = (ListView) findViewById(R.id.stands_list_view);

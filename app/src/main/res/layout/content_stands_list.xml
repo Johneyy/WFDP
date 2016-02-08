@@ -23,7 +23,7 @@
         <EditText android:id="@+id/inputSearch_standsList"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:hint="Wyszukaj stanowisko.."
+            android:hint="Wyszukaj stanowisko..."
             android:inputType="textVisiblePassword"
             android:textColor="#e89946"
             android:textColorHint="#e89946"

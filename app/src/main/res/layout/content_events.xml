@@ -23,7 +23,7 @@
         <EditText android:id="@+id/inputSearch"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:hint="Wyszukaj wydarzenia.."
+            android:hint="Wyszukaj wydarzenie..."
             android:inputType="textVisiblePassword"
             android:textColor="#e89946"
             android:textColorHint="#e89946"

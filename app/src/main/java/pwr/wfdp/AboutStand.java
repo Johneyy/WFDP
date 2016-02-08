@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -43,13 +44,18 @@ public class AboutStand extends BaseActivity implements NavigationView.OnNavigat
         lv = (ListView) findViewById(R.id.listView);
 
         adapter = new ArrayAdapter<String>(this, R.layout.beers_list_item, R.id.beer_name, products);
-        lv.setAdapter(adapter);
+        lv.setAdapter( adapter );
 
         justifyListViewHeightBasedOnChildren( lv );
 
-        // TODO: Trzeba zrobic zeby scroll view byl ustawiony na poczatek widoku, a nie na koniec
-        ScrollView sv = (ScrollView)findViewById( R.id.about_stand_scrollView );
-        sv.scrollTo( 0, 0 );
+        final ScrollView sv = (ScrollView)findViewById( R.id.about_stand_scrollView );
+        sv.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                // Ready, move up
+                sv.fullScroll(View.FOCUS_UP);
+            }
+        });
     }
 
     private void justifyListViewHeightBasedOnChildren (ListView listView) {
@@ -72,5 +78,4 @@ public class AboutStand extends BaseActivity implements NavigationView.OnNavigat
         listView.setLayoutParams(par);
         listView.requestLayout();
     }
-
 }

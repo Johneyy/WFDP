@@ -40,29 +40,27 @@ public class FestiwalMap extends BaseActivity {
     private float buttonY = 0;
     private int buttonSize = 40;
 
+    private PopupWindow currentPopup = null;
+
     private void popUpWinInformation( int x, int y ) {
         LayoutInflater inflater  = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View layoutt = inflater.inflate(R.layout.map_pop_up, null);
-        final PopupWindow popupWindow = new PopupWindow(
+
+        currentPopup = new PopupWindow(
                 layoutt,
                 Toolbar.LayoutParams.WRAP_CONTENT,
                 Toolbar.LayoutParams.WRAP_CONTENT);
-        popupWindow.showAtLocation(findViewById(R.id.mapActivity), Gravity.NO_GRAVITY, x, y);
-
-        Button closed = (Button) layoutt.findViewById(R.id.btn_close_popup);
-        closed.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                popupWindow.dismiss();
-            }
-        });
+        currentPopup.showAtLocation( findViewById( R.id.mapActivity ), Gravity.NO_GRAVITY, x, y );
 
         Button about_beer = (Button) layoutt.findViewById(R.id.btn_about_beer);
-        about_beer.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                Intent i = new Intent(getBaseContext(), AboutStand.class);
-                startActivity(i);
+        about_beer.setOnClickListener( new Button.OnClickListener()
+        {
+            public void onClick( View v )
+            {
+                Intent i = new Intent( getBaseContext(), AboutStand.class );
+                startActivity( i );
             }
-        });
+        } );
     }
 
     /** Called when the activity is first created. */
@@ -85,7 +83,9 @@ public class FestiwalMap extends BaseActivity {
         {
             public void onClick( View v )
             {
-                popUpWinInformation( (int)v.getX(), (int)v.getY() );
+                if ( currentPopup == null ) {
+                    popUpWinInformation( (int)v.getX(), (int)v.getY() );
+                }
             }
         } );
 
@@ -120,17 +120,27 @@ public class FestiwalMap extends BaseActivity {
 
                 switch (event.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:
-                        savedMatrix.set(matrix);
-                        startPoint.set(event.getX(), event.getY());
+                        if ( currentPopup != null ) {
+                            currentPopup.dismiss();
+                            currentPopup = null;
+                        }
+
+                        savedMatrix.set( matrix );
+                        startPoint.set( event.getX(), event.getY() );
                         mode = DRAG;
                         break;
 
                     case MotionEvent.ACTION_POINTER_DOWN:
-                        oldDist = spacing(event);
+                        if ( currentPopup != null ) {
+                            currentPopup.dismiss();
+                            currentPopup = null;
+                        }
 
-                        if (oldDist > 10f) {
-                            savedMatrix.set(matrix);
-                            midPoint(midPoint, event);
+                        oldDist = spacing( event );
+
+                        if ( oldDist > 10f ) {
+                            savedMatrix.set( matrix );
+                            midPoint( midPoint, event );
                             mode = ZOOM;
                         }
                         break;
